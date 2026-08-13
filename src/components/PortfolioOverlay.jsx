@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const BLUE  = '#3B82F6'
+const BLUE  = 'var(--accent)'
 const URL   = 'https://www.uxapex.com/portfolioa32'
 
 const NAV_LINKS = [
@@ -12,227 +12,119 @@ const NAV_LINKS = [
 export function PortfolioOverlay({ open, onClose, setPage }) {
   const iframeRef = useRef(null)
 
-  const navigate = (page) => {
-    onClose()
-    setPage(page)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  // Lock body scroll while overlay is open
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden'
-    } else {
+    if (!open) return
+    const onKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
     }
-    return () => { document.body.style.overflow = '' }
-  }, [open])
-
-  // Escape key closes overlay
-  useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') onClose() }
-    window.addEventListener('keydown', handler)
-    return () => window.removeEventListener('keydown', handler)
-  }, [onClose])
+  }, [open, onClose])
 
   if (!open) return null
 
+  const go = (p) => {
+    onClose()
+    setPage(p)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <div style={{
-      position: 'fixed',
-      inset: 0,
-      zIndex: 200,
-      display: 'flex',
-      flexDirection: 'column',
-      background: '#080808',
-      animation: 'overlayIn 0.35s cubic-bezier(0.16,1,0.3,1) both',
-    }}>
-
-      {/* ── Top nav bar ── */}
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Portfolio"
+      style={{
+        position: 'fixed', inset: 0, zIndex: 200,
+        background: 'var(--ink-primary)',
+        display: 'flex', flexDirection: 'column',
+      }}
+    >
       <div style={{
-        height: 64,
-        flexShrink: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 clamp(1rem, 4vw, 2.5rem)',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        padding: '0 clamp(1rem,4vw,2.5rem)', height: 56,
         background: 'rgba(8,8,8,0.94)',
-        backdropFilter: 'blur(14px)',
-        WebkitBackdropFilter: 'blur(14px)',
         borderBottom: '1px solid rgba(255,255,255,0.08)',
+        flexShrink: 0,
       }}>
-
-        {/* Left — Back button + pipe + Portfolio title */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <button
-            onClick={onClose}
+            onClick={() => go('home')}
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              padding: 0,
+              fontFamily: '"Cormorant Garamond", serif',
+              fontSize: '1.15rem', fontWeight: 600,
+              background: 'none', border: 'none',
+              cursor: 'pointer', padding: 0,
               color: 'rgba(255,255,255,0.72)',
-              fontSize: '0.7rem',
-              fontFamily: '"DM Sans", Helvetica Neue, sans-serif',
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-              fontWeight: 500,
               transition: 'color 0.2s',
             }}
             onMouseEnter={e => e.currentTarget.style.color = 'white'}
             onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.72)'}
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0 }}>
-              <path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            Back
-          </button>
-
+          >CK</button>
           <span style={{
+            fontSize: '0.6rem', textTransform: 'uppercase',
+            letterSpacing: '0.14em', fontWeight: 600,
             color: 'rgba(255,255,255,0.20)',
-            fontSize: '1rem',
-            fontWeight: 200,
-            lineHeight: 1,
-            userSelect: 'none',
-          }}>|</span>
-
-          <span style={{
-            fontFamily: '"DM Sans", Helvetica Neue, sans-serif',
-            fontSize: '0.7rem',
-            textTransform: 'uppercase',
-            letterSpacing: '0.15em',
-            fontWeight: 500,
-            color: 'white',
           }}>Portfolio</span>
         </div>
 
-        {/* Right — nav links + Contact pill + pipe + × close */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          {NAV_LINKS.map(({ label, page }) => (
-            <button
-              key={page}
-              onClick={() => navigate(page)}
-              style={{
-                fontSize: '0.7rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.15em',
-                fontWeight: 500,
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: 0,
-                color: 'rgba(255,255,255,0.72)',
-                fontFamily: '"DM Sans", Helvetica Neue, sans-serif',
-                transition: 'color 0.2s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.color = 'white'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.72)'}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          {NAV_LINKS.map(({ label, page: p }) => (
+            <button key={p} onClick={() => go(p)} style={{
+              fontSize: '0.65rem', textTransform: 'uppercase',
+              letterSpacing: '0.12em', fontWeight: 600,
+              background: 'none', border: 'none',
+              cursor: 'pointer', padding: 0,
+              color: 'rgba(255,255,255,0.72)',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.color = BLUE}
+            onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.72)'}
             >{label}</button>
           ))}
-
-          {/* Contact pill */}
           <a
             href="mailto:c.kenreigh@gmail.com"
             style={{
-              fontSize: '0.7rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-              fontWeight: 500,
-              fontFamily: '"DM Sans", Helvetica Neue, sans-serif',
-              textDecoration: 'none',
+              fontSize: '0.65rem', textTransform: 'uppercase',
+              letterSpacing: '0.12em', fontWeight: 600,
               color: 'rgba(255,255,255,0.82)',
               border: '1px solid rgba(255,255,255,0.25)',
-              borderRadius: 9999,
-              padding: '0.5rem 1.25rem',
-              transition: 'all 0.25s',
+              borderRadius: 9999, padding: '0.4rem 1rem',
+              textDecoration: 'none', transition: 'all 0.2s',
             }}
             onMouseEnter={e => { e.currentTarget.style.color = BLUE; e.currentTarget.style.borderColor = BLUE }}
             onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.82)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)' }}
           >Contact</a>
-
-          {/* Pipe divider */}
-          <span style={{
-            color: 'rgba(255,255,255,0.20)',
-            fontSize: '1rem',
-            fontWeight: 200,
-            lineHeight: 1,
-            userSelect: 'none',
-            marginLeft: '-0.5rem',
-          }}>|</span>
-
-          {/* × close */}
+          <span style={{ width: 1, height: 20, background: 'rgba(255,255,255,0.20)' }} />
           <button
             onClick={onClose}
             aria-label="Close portfolio"
             style={{
-              background: 'none',
-              border: 'none',
+              width: 36, height: 36, borderRadius: '50%',
+              background: 'none', border: 'none',
               cursor: 'pointer',
               color: 'rgba(255,255,255,0.55)',
-              padding: '6px',
-              lineHeight: 1,
+              fontSize: '1.1rem',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
               transition: 'color 0.2s',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginLeft: '-0.5rem',
             }}
             onMouseEnter={e => e.currentTarget.style.color = 'white'}
             onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.55)'}
-          >
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M2 2L16 16M16 2L2 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-          </button>
+          >✕</button>
         </div>
       </div>
 
-      {/* ── iframe fills remaining space ── */}
-      <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
-        {/* Subtle loading shimmer behind iframe */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: '#0d0d0d',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-          <span style={{
-            fontSize: '0.65rem',
-            textTransform: 'uppercase',
-            letterSpacing: '0.2em',
-            color: 'rgba(255,255,255,0.20)',
-            fontFamily: '"DM Sans", Helvetica Neue, sans-serif',
-          }}>Loading portfolio…</span>
-        </div>
-
+      <div style={{ flex: 1, position: 'relative', background: 'var(--surface-0)' }}>
         <iframe
           ref={iframeRef}
           src={URL}
           title="Portfolio"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            display: 'block',
-          }}
+          style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
           allow="fullscreen"
         />
       </div>
-
-      {/* Keyframe animation */}
-      <style>{`
-        @keyframes overlayIn {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   )
 }
