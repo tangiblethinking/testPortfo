@@ -1,0 +1,79 @@
+# robots.txt — uxapex.com
+# Christopher Kenreigh · Director of UX & Product Design
+
+User-agent: *
+Allow: /
+
+# --- AI / LLM CRAWLERS & SEARCH AGENTS ---
+
+# OpenAI: Training, User-Previews, and the new Search engine
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+
+# Google: Training and specific AI services
+User-agent: Googlebot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Google-CloudVertexBot
+Allow: /
+User-agent: GoogleOther
+Allow: /
+
+# Anthropic: Claude's family of bots
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+# Meta: AI training and real-time fetching
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: Meta-ExternalFetcher
+Allow: /
+User-agent: facebookexternalhit
+Allow: /
+
+# Microsoft & Perplexity
+User-agent: Bingbot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+# Amazon & Apple
+User-agent: Amazonbot
+Allow: /
+User-agent: Applebot
+Allow: /
+
+# Common Crawl: The foundation for many open-source LLMs
+User-agent: CCBot
+Allow: /
+
+# Emerging AI Search & Aggregators
+User-agent: Bytespider
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: Omgilibot
+Allow: /
+User-agent: TavilyBot
+Allow: /
+
+# --- SOCIAL & PROFESSIONAL NETWORKS ---
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# --- SITEMAP ---
+
+Sitemap: https://uxapex.com/sitemap.xml

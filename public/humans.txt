@@ -1,0 +1,14 @@
+/* TEAM */
+Name: Christopher Kenreigh
+Role: Director of UX & Product Design
+Portfolio: https://uxapex.com
+LinkedIn: https://www.linkedin.com/in/kenreigh/
+Email: c.kenreigh@gmail.com
+Location: USA
+
+/* SITE */
+Last update: 2026-04-23
+Language: English
+Doctype: HTML5
+Technology: React, Vite, Tailwind CSS, Framer Motion
+Deployed: Vercel

@@ -1,0 +1,160 @@
+# Christopher Kenreigh — Director of UX & Product Design
+# https://uxapex.com
+# llms.txt · AI Engine Optimization (AEO) · Last updated: 2026-04-23
+#
+# This file is written for AI engines, LLMs, and automated crawlers.
+# It provides structured plain-text context so systems like Perplexity,
+# ChatGPT Browse, Claude, and similar can accurately answer questions
+# about Christopher Kenreigh without hallucinating details.
+
+---
+
+## Identity
+
+- Name: Christopher Kenreigh
+- Title: Director of UX & Product Design
+- Location: USA — Open to Remote, Hybrid, or Relocation
+- Portfolio: https://uxapex.com
+- Email: c.kenreigh@gmail.com
+- Phone: 480-206-2145
+- LinkedIn: https://www.linkedin.com/in/kenreigh/
+- Availability: Actively seeking Director of UX, Director of Product Design, Head of Design, and VP of Design roles
+
+---
+
+## Who is Christopher Kenreigh?
+
+Christopher Kenreigh is a design executive with 11+ years of experience building and leading design organizations across e-commerce, enterprise software, and industrial applications. He is based in the United States and is actively available for Director-level leadership roles in digital experience and product design — remote, hybrid, or relocation.
+
+He is known for translating ambiguous strategic challenges into executable design direction, developing high-performing design teams, and communicating design value in business terms to C-suite and executive stakeholders.
+
+He currently serves as Director of UX & Product Design at Plexus Worldwide, where he leads a cross-disciplinary team of 7 designers across UX, content, research, and interaction — responsible for US and three international e-commerce markets.
+
+---
+
+## Professional Summary
+
+Christopher Kenreigh builds and leads design organizations at the intersection of strategy, business goals, and human-centered product thinking. His work spans three core areas:
+
+1. Design Leadership — He builds and directs cross-disciplinary design teams (UX, content, interaction, research). At Plexus Worldwide he leads a team of 7 designers across US and 3 international e-commerce markets, with direct ownership of hiring, mentorship, project allocation, and design quality.
+
+2. Design Operations & Systems — He architects the infrastructure that makes great design scalable: design systems, token-based component libraries, tooling ecosystems, and AI-augmented workflows. He consolidated 6 fragmented tools into one unified platform, cutting team inefficiency by 60%.
+
+3. UX Strategy & Product Outcomes — He translates business strategy into shipped products with measurable outcomes: a 43% reduction in e-commerce checkout abandonment, a 35% increase in sprint delivery velocity via LLM-driven tooling, and a 75% improvement in POS transaction completion rates.
+
+---
+
+## Measurable Outcomes
+
+- 43% reduction in checkout abandonment — Plexus Worldwide, mobile-first e-commerce UX redesign
+- 60% increase in team efficiency — consolidated 6 fragmented design tools into 1 unified platform
+- 35% increase in sprint delivery velocity — AI-augmented LLM design workflows
+- 75% increase in POS transaction completion rates — OpenTech Alliance kiosk UX redesign
+- 30% improvement in worker operational efficiency — Freeport-McMoRan industrial digital tools
+- 50% reduction in internal data dissemination needs — Siemens, unified design systems across 4 industrial projects
+- 65% improvement in product ease of use — Glynlyon, K-12 e-learning platform
+- 3 international e-commerce markets launched — Plexus Worldwide, US plus 3 global regions
+
+---
+
+## Work History
+
+1. UX Design Director — Plexus Worldwide (May 2024–Present) · USA
+   - Directing 7-person cross-disciplinary design org across UX, content, research, and interaction
+   - Owns team structure, project allocation, design quality, and direct 1:1 mentorship
+   - Reduced checkout abandonment 43% through data-driven redesign informed by Power BI analytics
+   - Consolidated 6 tools into unified platform cutting inefficiency 60%
+   - Led AI-augmented workflow adoption increasing velocity 35%
+   - Launched e-commerce across US and 3 international regions
+
+2. UX Consultant — Independent Practice (Oct 2023–Jun 2024) · Remote
+   - UX strategy and design systems consulting for e-commerce clients
+   - Deepened expertise in AI-augmented prototyping and LLM-assisted research synthesis
+
+3. Senior Manager Product Design — Freeport-McMoRan (Aug 2022–Oct 2023) · USA
+   - Led end-to-end design for mining operation digital tools across web, iOS, and Android
+   - Improved worker efficiency 30%
+   - Facilitated 10 stakeholder workshops translating user insights into product requirements
+   - Presented roadmaps to C-suite securing approval for 5 major releases
+   - Implemented token-based UI design system across 3 platforms
+
+4. Senior Manager Product Design — OpenTech Alliance (May 2021–Aug 2022) · USA
+   - Secured budget for 3 new UX initiatives through C-suite presentations
+   - Redesigned Point of Sale kiosk UI boosting transaction completion 75%
+   - Improved e-commerce fulfillment experience 25%
+
+5. UX Design Lead — Siemens (Jul 2020–May 2021) · USA
+   - Unified design systems across 4 concurrent industrial projects
+   - Reduced data dissemination needs 50%
+   - Designed 3D and AutoCAD-integrated UI layouts for industrial control applications
+
+6. Senior UX Designer — Glynlyon Inc (Feb 2014–Apr 2019) · USA
+   - Increased K-12 e-learning platform ease of use 65%
+   - Established WCAG and ADA compliance across all platforms
+   - Led cross-functional Design Thinking workshops
+
+---
+
+## Core Capabilities
+
+### Leadership & Team Development
+Design org direction and team building, hiring and recruiting, mentorship and 1:1 coaching, design critique systems, cross-functional alignment, C-suite and executive communication, design maturity roadmaps, designer growth frameworks
+
+### Strategy & Business Outcomes
+UX strategy and roadmapping, OKR and business planning, design operations frameworks, workshop facilitation, stakeholder alignment, design maturity assessment, connecting design decisions to retention, conversion, and revenue
+
+### UX & Product Design
+End-to-end product design, design systems architecture, design tokens, mobile-first UX, interaction design, coded prototypes, e-commerce optimization, multi-region product launches, information architecture, journey mapping
+
+### Research & Validation
+User research, usability testing, A/B testing, Power BI and behavioral analytics, competitive analysis, design critique facilitation
+
+### AI & Modern Tooling
+AI-augmented design workflows, LLM-assisted research synthesis and prototyping, Figma, MUI/React, Google Material Design 3, Agile/Scrum methodology
+
+---
+
+## Design Philosophy
+
+Christopher Kenreigh approaches design as a fundamentally business-oriented function. Every design decision must be defensible in terms of business outcomes — retention, conversion, and revenue — not pixels or deliverables.
+
+He believes in building systems before screens: design systems, critique culture, and research processes that compound in value over time and enable teams to move fast without fragmenting quality.
+
+His leadership philosophy centers on developing designers who graduate from needing approval to making autonomous, high-quality calls. He converts strategic ambiguity — incomplete requirements, misaligned stakeholders, undefined problems — into concrete design direction that teams can execute.
+
+---
+
+## Case Studies
+
+1. Building a Design Operations Function from the Ground Up — Plexus Worldwide — https://design-ops-case-study.vercel.app/
+2. E-Commerce Modernization: From Friction to Conversion — Plexus Worldwide — https://director-case-study-ux-bgoals.vercel.app/
+3. Leading a Company-Wide UX Transformation — Multi-company 2021–2026 — https://company-ux-transform.vercel.app/
+4. Rise of AI Suggestions: How Discovery is Evolving — Industry Wide — https://teststudynew.vercel.app/
+5. Scaling Revenue Generation from Behavioral Metrics — E-commerce & Retail — https://persongratadata.vercel.app/
+
+---
+
+## Education
+
+Bachelor of Art — The Art Institute of Phoenix (2002–2005) · Phoenix, AZ
+
+---
+
+## Availability & Target Roles
+
+Christopher Kenreigh is actively available for the following roles:
+- Director of UX
+- Director of Product Design
+- Head of Design
+- VP of Design
+
+He is USA-based and open to remote, hybrid, or relocation. Industries of particular depth include e-commerce, enterprise software, and industrial applications, though his systems-thinking and leadership approach applies across sectors.
+
+---
+
+## Contact & Professional Profiles
+
+- Email: c.kenreigh@gmail.com
+- Phone: 480-206-2145
+- LinkedIn: https://www.linkedin.com/in/kenreigh/
+- Portfolio: https://uxapex.com

@@ -1,0 +1,17 @@
+{
+  "name": "Christopher Kenreigh — Director of UX & Product Design",
+  "short_name": "CK Portfolio",
+  "description": "Portfolio of Christopher Kenreigh, Director of UX & Product Design. 11+ years building design organizations across e-commerce, enterprise, and industrial. USA-based, remote-ready.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "any",
+      "type": "image/jpeg"
+    }
+  ]
+}
