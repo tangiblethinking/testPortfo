@@ -1,14 +1,14 @@
 import { FadeUp } from '../components/Motion'
 
-const BLUE  = '#1D5FD9'
-const BLUE2 = '#1448B3'
-const WARM  = '#C95F0A'
-const INK   = '#0D1117'
-const INK_BODY = '#2D3748'
-const INK_SEC  = '#4A5568'
-const INK_TERT = '#596880'
-const BORDER   = '#D1D5DB'
-const SURF1    = '#F7F8FA'
+const BLUE  = 'var(--accent)'
+const BLUE2 = 'var(--accent-h)'
+const WARM  = 'var(--warm)'
+const INK   = 'var(--ink-primary)'
+const INK_BODY = 'var(--ink-body)'
+const INK_SEC  = 'var(--ink-secondary)'
+const INK_TERT = 'var(--ink-tertiary)'
+const BORDER   = 'var(--border)'
+const SURF1    = 'var(--surface-1)'
 const SP       = 'clamp(3.5rem,7vw,6.5rem) clamp(1rem,4vw,2.5rem)'
 const MAX      = { maxWidth: 1400, margin: '0 auto' }
 
@@ -91,7 +91,6 @@ export default function Resume({ setPage }) {
   return (
     <main id="main-content">
 
-      {/* Hero */}
       <div style={{ background: SURF1, padding: 'clamp(1rem,4vw,2.5rem)', paddingTop: 'clamp(5rem,10vw,8rem)', paddingBottom: 'clamp(2.5rem,5vw,4rem)', borderBottom: '1px solid ' + BORDER }}>
         <div style={MAX}>
           <FadeUp>
