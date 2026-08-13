@@ -3,15 +3,14 @@ import { motion } from 'framer-motion'
 
 const expo = [0.16, 1, 0.3, 1]
 
-// WCAG AA colours — verified on white
-const BLUE     = '#1D5FD9'   // 5.74:1 ✓
-const INK      = '#0D1117'   // 19.1:1 ✓
-const INK_BODY = '#2D3748'   // 10.7:1 ✓
-const INK_SEC  = '#4A5568'   // 7.0:1  ✓
-const INK_TERT = '#596880'   // 4.6:1  ✓
-const BORDER   = '#D1D5DB'
-const SURFACE1 = '#F7F8FA'
-const SURFACE2 = '#EFF1F5'
+const BLUE     = 'var(--accent)'
+const INK      = 'var(--ink-primary)'
+const INK_BODY = 'var(--ink-body)'
+const INK_SEC  = 'var(--ink-secondary)'
+const INK_TERT = 'var(--ink-tertiary)'
+const BORDER   = 'var(--border)'
+const SURFACE1 = 'var(--surface-1)'
+const SURFACE2 = 'var(--surface-2)'
 
 function CaseStudyModal({ study, onClose }) {
   useEffect(() => {
@@ -29,7 +28,7 @@ function CaseStudyModal({ study, onClose }) {
       onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
       style={{
         position: 'fixed', inset: 0, zIndex: 200,
-        background: 'rgba(13,17,23,0.70)',
+        background: 'var(--overlay-scrim)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         padding: 'clamp(0.5rem, 2vw, 1rem)',
         backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
@@ -42,17 +41,16 @@ function CaseStudyModal({ study, onClose }) {
         transition={{ duration: 0.28, ease: expo }}
         style={{
           width: '100%', maxWidth: 1200, height: '92vh',
-          background: '#FFFFFF', borderRadius: 16,
-          overflow: 'hidden', border: '1px solid ' + BORDER,
+          background: 'var(--surface-0)', borderRadius: 16,
+          overflow: 'hidden', border: '1px solid var(--border)',
           display: 'flex', flexDirection: 'column',
           boxShadow: '0 24px 80px rgba(0,0,0,0.14)',
         }}
       >
-        {/* Toolbar */}
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: '0 1rem', background: SURFACE1,
-          borderBottom: '1px solid ' + BORDER,
+          borderBottom: '1px solid var(--border)',
           flexShrink: 0, height: 48, minHeight: 48,
         }}>
           <span style={{
@@ -67,12 +65,12 @@ function CaseStudyModal({ study, onClose }) {
             aria-label="Close case study"
             style={{
               width: 32, height: 32, borderRadius: '50%',
-              background: SURFACE2, border: '1px solid ' + BORDER,
+              background: SURFACE2, border: '1px solid var(--border)',
               color: INK_BODY, fontSize: '0.9rem', cursor: 'pointer',
               flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
               transition: 'background 0.2s',
             }}
-            onMouseEnter={e => e.currentTarget.style.background = '#D1D5DB'}
+            onMouseEnter={e => e.currentTarget.style.background = 'var(--border)'}
             onMouseLeave={e => e.currentTarget.style.background = SURFACE2}
           >✕</button>
         </div>
@@ -91,8 +89,7 @@ function CaseStudyModal({ study, onClose }) {
 export function CaseStudyCard({ study, index = 0 }) {
   const [open, setOpen] = useState(false)
 
-  // Map original dark accent colours to light-theme WCAG-safe equivalents for tags/dots
-  const dotColor = study.color === '#1A1A1A' || study.color === '#080808'
+  const dotColor = study.color === '#1A1A1A' || study.color === 'var(--ink-primary)'
     ? BLUE : study.color
 
   return (
@@ -110,7 +107,7 @@ export function CaseStudyCard({ study, index = 0 }) {
           style={{
             display: 'flex', flexDirection: 'column',
             width: '100%',
-            background: '#FFFFFF',
+            background: 'var(--surface-0)',
             border: '1.5px solid ' + BORDER,
             borderRadius: 16, overflow: 'hidden',
             cursor: 'pointer',
@@ -119,7 +116,7 @@ export function CaseStudyCard({ study, index = 0 }) {
             boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)',
           }}
           onMouseEnter={e => {
-            e.currentTarget.style.borderColor = 'rgba(29,95,217,0.40)'
+            e.currentTarget.style.borderColor = 'var(--accent)'
             e.currentTarget.style.boxShadow   = '0 4px 12px rgba(0,0,0,0.08), 0 16px 40px rgba(0,0,0,0.07)'
             e.currentTarget.style.transform   = 'translateY(-3px)'
           }}
@@ -129,11 +126,10 @@ export function CaseStudyCard({ study, index = 0 }) {
             e.currentTarget.style.transform   = 'translateY(0)'
           }}
         >
-          {/* Card header row */}
           <div style={{
             display: 'flex', justifyContent: 'space-between',
             padding: '1.1rem 1.5rem 0.9rem',
-            borderBottom: '1px solid ' + BORDER,
+            borderBottom: '1px solid var(--border)',
             flexShrink: 0, background: SURFACE1,
           }}>
             <span style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: INK_TERT, fontWeight: 600 }}>
@@ -171,7 +167,6 @@ export function CaseStudyCard({ study, index = 0 }) {
             </div>
           </div>
 
-          {/* Accent bar */}
           <div style={{
             height: 3, background: dotColor, flexShrink: 0,
             transform: 'scaleX(0)', transformOrigin: 'left',
