@@ -1,12 +1,5 @@
 import { useState, useEffect } from 'react'
 
-// WCAG AA colours — all verified ≥ 4.5:1 on white (#FFFFFF)
-const BLUE       = '#1D5FD9'   // 5.74:1 ✓
-const INK        = '#0D1117'   // 19.1:1 ✓
-const INK_SEC    = '#4A5568'   // 7.0:1  ✓
-const BORDER     = '#D1D5DB'
-const SURFACE_2  = '#EFF1F5'
-
 const links = [
   { label: 'Case Studies', page: 'work' },
   { label: 'About',        page: 'about' },
@@ -34,7 +27,7 @@ export function Nav({ page, setPage, openPortfolio }) {
     <>
       <a href="#main-content" style={{
         position: 'absolute', top: '-100%', left: '1rem', zIndex: 9999,
-        background: BLUE, color: 'white', padding: '0.75rem 1.25rem',
+        background: 'var(--accent)', color: 'white', padding: '0.75rem 1.25rem',
         borderRadius: '0 0 8px 8px', fontSize: '0.85rem', fontWeight: 600,
         textDecoration: 'none', transition: 'top 0.2s',
       }} onFocus={e => e.currentTarget.style.top='0'}
@@ -47,10 +40,10 @@ export function Nav({ page, setPage, openPortfolio }) {
         style={{
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
           transition: 'background 0.4s ease, box-shadow 0.4s ease',
-          background: scrolled ? 'rgba(255,255,255,0.96)' : 'rgba(255,255,255,0.0)',
+          background: scrolled ? 'var(--nav-bg)' : 'var(--nav-bg-top)',
           backdropFilter: scrolled ? 'blur(16px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
-          boxShadow: scrolled ? '0 1px 0 #D1D5DB' : 'none',
+          boxShadow: scrolled ? '0 1px 0 var(--border)' : 'none',
         }}
       >
         <div style={{
@@ -59,21 +52,19 @@ export function Nav({ page, setPage, openPortfolio }) {
           height: 64,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}>
-          {/* Logo */}
           <button
             onClick={() => go('home')}
             aria-label="Christopher Kenreigh — Home"
             style={{
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: '1.3rem', fontWeight: 600,
-              color: INK, background: 'none', border: 'none',
+              color: 'var(--ink-primary)', background: 'none', border: 'none',
               cursor: 'pointer', padding: 0, transition: 'color 0.2s',
             }}
-            onMouseEnter={e => e.currentTarget.style.color = BLUE}
-            onMouseLeave={e => e.currentTarget.style.color = INK}
+            onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'var(--ink-primary)'}
           >CK</button>
 
-          {/* Desktop links */}
           <div className="hidden-mobile" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             {links.map(({ label, page: p }) => (
               <button
@@ -84,11 +75,11 @@ export function Nav({ page, setPage, openPortfolio }) {
                   fontSize: '0.7rem', textTransform: 'uppercase',
                   letterSpacing: '0.14em', fontWeight: 600,
                   background: 'none', border: 'none', cursor: 'pointer', padding: 0,
-                  color: page === p ? BLUE : INK_SEC,
+                  color: page === p ? 'var(--accent)' : 'var(--ink-secondary)',
                   transition: 'color 0.2s',
                 }}
-                onMouseEnter={e => { if (page !== p) e.currentTarget.style.color = INK }}
-                onMouseLeave={e => { if (page !== p) e.currentTarget.style.color = INK_SEC }}
+                onMouseEnter={e => { if (page !== p) e.currentTarget.style.color = 'var(--ink-primary)' }}
+                onMouseLeave={e => { if (page !== p) e.currentTarget.style.color = 'var(--ink-secondary)' }}
               >{label}</button>
             ))}
             <a
@@ -98,18 +89,17 @@ export function Nav({ page, setPage, openPortfolio }) {
                 letterSpacing: '0.14em', fontWeight: 600,
                 textDecoration: 'none',
                 color: 'white',
-                background: BLUE,
-                border: '1.5px solid ' + BLUE,
+                background: 'var(--accent)',
+                border: '1.5px solid var(--accent)',
                 borderRadius: 9999, padding: '0.5rem 1.25rem',
                 transition: 'all 0.25s',
                 minHeight: 36, display: 'inline-flex', alignItems: 'center',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#1448B3'; e.currentTarget.style.borderColor = '#1448B3' }}
-              onMouseLeave={e => { e.currentTarget.style.background = BLUE; e.currentTarget.style.borderColor = BLUE }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent-h)'; e.currentTarget.style.borderColor = 'var(--accent-h)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
             >Contact</a>
           </div>
 
-          {/* Hamburger */}
           <button
             className="show-mobile"
             onClick={() => setOpen(!open)}
@@ -124,7 +114,7 @@ export function Nav({ page, setPage, openPortfolio }) {
           >
             {[0,1,2].map(i => (
               <span key={i} style={{
-                display: 'block', width: 24, height: 2, background: INK,
+                display: 'block', width: 24, height: 2, background: 'var(--ink-primary)',
                 borderRadius: 2, transition: 'all 0.3s',
                 transform: open
                   ? i === 0 ? 'rotate(45deg) translate(5px, 5px)'
@@ -137,7 +127,6 @@ export function Nav({ page, setPage, openPortfolio }) {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <div
         id="mobile-menu"
         role="dialog"
@@ -145,7 +134,7 @@ export function Nav({ page, setPage, openPortfolio }) {
         aria-label="Navigation menu"
         style={{
           position: 'fixed', inset: 0, zIndex: 90,
-          background: '#FFFFFF',
+          background: 'var(--surface-0)',
           display: 'flex', flexDirection: 'column', justifyContent: 'center',
           padding: 'clamp(1.5rem, 6vw, 3rem)',
           opacity: open ? 1 : 0,
@@ -158,23 +147,23 @@ export function Nav({ page, setPage, openPortfolio }) {
             <button key={p} onClick={() => go(p)} style={{
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(2.2rem, 9vw, 4.5rem)',
-              color: INK, background: 'none', border: 'none',
+              color: 'var(--ink-primary)', background: 'none', border: 'none',
               cursor: 'pointer', textAlign: 'left', padding: 0,
               marginBottom: '0.25rem', lineHeight: 1.15,
               transition: 'color 0.2s',
             }}
-            onMouseEnter={e => e.currentTarget.style.color = BLUE}
-            onMouseLeave={e => e.currentTarget.style.color = INK}
+            onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'var(--ink-primary)'}
             >{label}</button>
           ) : (
             <a key={label} href="mailto:c.kenreigh@gmail.com" style={{
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(2.2rem, 9vw, 4.5rem)',
-              color: INK_SEC, textDecoration: 'none', lineHeight: 1.15,
+              color: 'var(--ink-secondary)', textDecoration: 'none', lineHeight: 1.15,
             }}>{label}</a>
           )
         )}
-        <p style={{ fontSize: '0.7rem', color: INK_SEC, marginTop: '3rem', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+        <p style={{ fontSize: '0.7rem', color: 'var(--ink-secondary)', marginTop: '3rem', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
           c.kenreigh@gmail.com · 480-206-2145
         </p>
       </div>
