@@ -90,4 +90,20 @@ export const designs = [
     secondaryUrl:    'https://cdn.myportfolio.com/abc1e0ab-7370-4502-8c78-92428397bf66/e723db14-c00a-45fd-903d-958584af44ba.png?h=7b474ca5e6debaa8895b1a9f9eefe64f',
     showSecondary:   true,  // set to false to hide the secondary CTA
   },
+   {
+    id:              'Data2Designs-06',
+    index:           '06',
+    title:           'Mine Resource Accounting',
+    subtitle:        'Analysis and Plan Mapping · Financial Tool',
+    description:     'A smart tool that dynamically calculates resources of mines to project resource production targets, total life of mine site, and source of truth for site data.',
+    tags:            ['Research and Analysis', 'Fin-Tech', 'Strategic planning'],
+    color:           '#10B981',
+    imageUrl:        'https://cdn.myportfolio.com/abc1e0ab-7370-4502-8c78-92428397bf66/e723db14-c00a-45fd-903d-958584af44ba.png?h=7b474ca5e6debaa8895b1a9f9eefe64f',   // any public image URL
+    category:        'Freeport McMoRan',                             // shown in the top-right of the card (falls back to "Design")
+    primaryLabel:    'Data Mapping for UI/UX',
+    primaryUrl:      'https://www.figma.com/board/LIPgSASEQNHDUXcZHBwrMz/Freeport-McMoRan-Resource-Mine-Accouting?node-id=0-1&t=isQfTNUnxUoDOZ5m-1',
+    secondaryLabel:  'See Prototype',
+    secondaryUrl:    'https://www.figma.com/proto/qij6caj079zBLrmbKkzwE0/WIP-Wireframe-Concepts?node-id=3632-48153&t=t7cRhk8TxBtavqdN-8&scaling=scale-down-width&content-scaling=fixed&page-id=1228%3A12478&starting-point-node-id=3632%3A48153&disable-default-keyboard-nav=1&hide-ui=1',
+    showSecondary:   true,  // set to false to hide the secondary CTA
+  },
 ].sort((a, b) => a.index.localeCompare(b.index));
