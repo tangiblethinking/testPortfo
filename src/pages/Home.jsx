@@ -117,13 +117,42 @@ export default function Home({ setPage }) {
                 onMouseEnter={e => e.currentTarget.style.background = BLUE2}
                 onMouseLeave={e => e.currentTarget.style.background = BLUE}>Contact</a>
             </div>
-          </motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }} aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, marginTop: '16px', width: 'fit-content' }}>
-            <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: INK_TERT }}>Scroll</span>
-            <div style={{ width: 1, height: 36, background: BORDER, position: 'relative', overflow: 'hidden' }}>
-              <div className="scroll-dot" style={{ position: 'absolute', top: 0, width: '100%', height: '33%', background: BLUE, opacity: 0.9 }} />
-            </div>
-          </motion.div>
+          <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 1.4, duration: 0.6 }}
+  aria-hidden="true"
+  style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: 6,
+    marginTop: '16px',
+    width: 'fit-content',
+  }}
+>
+  <span
+    style={{
+      fontSize: '0.55rem',
+      textTransform: 'uppercase',
+      letterSpacing: '0.15em',
+      color: INK_TERT,
+    }}
+  >
+    Scroll
+  </span>
+  <div
+    style={{
+      width: 1,
+      height: 36,
+      background: BORDER,
+      position: 'relative',
+      overflow: 'hidden',
+    }}
+  >
+    <div className="scroll-dot" />
+  </div>
+</motion.div>
         </div>
       </section>
 
