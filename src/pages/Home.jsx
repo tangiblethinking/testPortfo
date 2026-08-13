@@ -138,7 +138,7 @@ export default function Home({ setPage }) {
                 color: INK_TERT,
               }}
             >
-              Scroll
+              See More
             </span>
             <div
               style={{
