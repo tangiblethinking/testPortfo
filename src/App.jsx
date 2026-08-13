@@ -3,6 +3,8 @@ import { Nav } from './components/Nav'
 import { Footer } from './components/Footer'
 import { Cursor } from './components/Cursor'
 import { PortfolioOverlay } from './components/PortfolioOverlay'
+import { ThemeToggle } from './components/ThemeToggle'
+import { ThemeProvider } from './context/ThemeContext'
 import Home from './pages/Home'
 import Work from './pages/Work'
 import About from './pages/About'
@@ -13,7 +15,7 @@ export default function App() {
   const [portfolioOpen, setPortfolioOpen] = useState(false)
 
   return (
-    <>
+    <ThemeProvider>
       <Cursor />
       <Nav page={page} setPage={setPage} openPortfolio={() => setPortfolioOpen(true)} />
       <div>
@@ -24,6 +26,7 @@ export default function App() {
       </div>
       <Footer setPage={setPage} />
       <PortfolioOverlay open={portfolioOpen} onClose={() => setPortfolioOpen(false)} setPage={setPage} />
-    </>
+      <ThemeToggle />
+    </ThemeProvider>
   )
 }
