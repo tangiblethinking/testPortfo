@@ -2,40 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ────────────────────────────────────────────────
-   DESIGN TOKENS — Light / WCAG AA Compliant
-   Palette: Clean white + cool slate + warm amber
-   All text-on-background combos ≥ 4.5:1 ratio
-   ──────────────────────────────────────────────── */
+/* DESIGN TOKENS — Light / WCAG AA Compliant */
 :root {
-  /* Accent — Blue #1D5FD9 = 5.74:1 on white ✓ AA */
   --accent:      #1D5FD9;
   --accent-h:    #1448B3;
   --accent-muted:#EEF3FC;
-
-  /* Warm accent — #C95F0A = 4.56:1 on white ✓ AA */
   --warm:        #C95F0A;
   --warm-muted:  #FDF3E9;
-
-  /* Violet — decorative (large text only) */
   --violet:      #6C3EC5;
   --violet-muted:#F2EDFC;
-
-  /* Surface hierarchy */
   --surface-0:   #FFFFFF;
   --surface-1:   #F7F8FA;
   --surface-2:   #EFF1F5;
   --surface-3:   #E2E6EE;
-
-  /* Ink — all AA on white */
-  --ink-primary:   #0D1117;   /* 19.1:1 */
-  --ink-body:      #2D3748;   /* 10.7:1 */
-  --ink-secondary: #4A5568;   /* 7.0:1  */
-  --ink-tertiary:  #596880;   /* 4.6:1  */
-  --ink-label:     #374151;   /* 9.7:1  */
-
+  --ink-primary:   #0D1117;
+  --ink-body:      #2D3748;
+  --ink-secondary: #4A5568;
+  --ink-tertiary:  #596880;
+  --ink-label:     #374151;
   --border:        #D1D5DB;
   --border-strong: #9CA3AF;
+  --nav-bg:        rgba(255,255,255,0.96);
+  --nav-bg-top:    rgba(255,255,255,0.0);
+  --overlay-scrim: rgba(13,17,23,0.70);
+  --shadow-fab:    0 4px 20px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* DARK THEME */
+html.dark {
+  --accent:      #58A6FF;
+  --accent-h:    #79B8FF;
+  --accent-muted:#1C2D4A;
+  --warm:        #E3A008;
+  --warm-muted:  #3D2E0A;
+  --violet:      #A371F7;
+  --violet-muted:#2A1F3D;
+  --surface-0:   #0D1117;
+  --surface-1:   #161B22;
+  --surface-2:   #21262D;
+  --surface-3:   #30363D;
+  --ink-primary:   #F0F6FC;
+  --ink-body:      #C9D1D9;
+  --ink-secondary: #8B949E;
+  --ink-tertiary:  #6E7681;
+  --ink-label:     #C9D1D9;
+  --border:        #30363D;
+  --border-strong: #484F58;
+  --nav-bg:        rgba(13,17,23,0.92);
+  --nav-bg-top:    rgba(13,17,23,0.0);
+  --overlay-scrim: rgba(0,0,0,0.75);
+  --shadow-fab:    0 4px 24px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,31 +67,29 @@ body {
   color: var(--ink-primary);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .text-hero    { font-size: clamp(2.4rem, 7vw, 8rem);   line-height: 1.0;  letter-spacing: -0.03em; }
 .text-display { font-size: clamp(1.5rem, 4vw, 3.5rem); line-height: 1.05; letter-spacing: -0.025em; }
 .text-heading { font-size: clamp(1.15rem, 2.5vw, 2rem); line-height: 1.2; }
 
-/* Atmospheric hero background */
 .mesh-bg {
   background-color: var(--surface-0);
   background-image:
-    radial-gradient(at 15% 25%, rgba(29,95,217,0.08) 0px, transparent 60%),
-    radial-gradient(at 85% 10%, rgba(108,62,197,0.05) 0px, transparent 50%),
-    radial-gradient(at 60% 90%, rgba(201,95,10,0.05) 0px, transparent 50%);
+    radial-gradient(at 15% 25%, color-mix(in srgb, var(--accent) 12%, transparent) 0px, transparent 60%),
+    radial-gradient(at 85% 10%, color-mix(in srgb, var(--violet) 8%, transparent) 0px, transparent 50%),
+    radial-gradient(at 60% 90%, color-mix(in srgb, var(--warm) 8%, transparent) 0px, transparent 50%);
 }
 
-/* Very subtle grid */
 .grid-bg {
   background-color: var(--surface-0);
   background-image:
-    linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--ink-primary) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--ink-primary) 4%, transparent) 1px, transparent 1px);
   background-size: 72px 72px;
 }
 
-/* Hover underline */
 .hover-line { position: relative; }
 .hover-line::after {
   content: '';
@@ -87,7 +101,6 @@ body {
 }
 .hover-line:hover::after { width: 100%; }
 
-/* Tags — ink-secondary on surface-1 = 7.0:1 ✓ */
 .tag {
   display: inline-flex;
   padding: 0.28rem 0.72rem;
@@ -108,10 +121,9 @@ body {
 
 ::selection { background: var(--accent); color: white; }
 
-/* Modal */
 .modal-overlay {
   position: fixed; inset: 0; z-index: 200;
-  background: rgba(13,17,23,0.70);
+  background: var(--overlay-scrim);
   display: flex; align-items: center; justify-content: center;
   padding: 1rem;
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -124,6 +136,9 @@ body {
   overflow-y: auto; position: relative;
   box-shadow: 0 24px 80px rgba(0,0,0,0.16);
 }
+html.dark .modal-box {
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+}
 .modal-close {
   position: sticky; top: 1rem; float: right; margin: 1rem 1rem 0 0;
   background: var(--surface-2); border: 1px solid var(--border);
@@ -134,11 +149,9 @@ body {
 }
 .modal-close:hover { background: var(--surface-3); }
 
-/* Dividers */
 .divider-dark  { width: 100%; height: 1px; background: var(--border); border: none; display: block; }
 .divider-light { width: 100%; height: 1px; background: var(--border); border: none; display: block; }
 
-/* Card grid */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -146,7 +159,6 @@ body {
 }
 @media (max-width: 680px) { .card-grid { grid-template-columns: 1fr; } }
 
-/* Designs grid — 3 columns, stacks on mobile */
 .designs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -160,16 +172,18 @@ body {
   .designs-grid { grid-template-columns: 1fr; }
 }
 
-/* Focus — 3px outline, accent color, meets 3:1 ✓ */
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .hidden-mobile { display: none !important; }
   .show-mobile   { display: flex !important; }
 }
 @media (min-width: 769px) { .show-mobile { display: none !important; } }
+
+main, nav, footer, .modal-box, .mesh-bg, .grid-bg {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
