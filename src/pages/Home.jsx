@@ -388,7 +388,7 @@ export default function Home({ setPage }) {
           <FadeUp delay={0.1}>
             <h2 style={{ fontFamily: '"Cormorant Garamond",serif', fontSize: 'clamp(1.5rem,3.5vw,3rem)', color: INK, fontWeight: 500, lineHeight: 1.08, marginBottom: '2rem' }}>
               Where there is opportunity {' '}
-              <em style={{ color: BLUE, fontStyle: 'normal' }}>I speak up</em>, to bring attention to the actions that bring solutions.
+              <em style={{ color: BLUE, fontStyle: 'normal' }}>I speak up</em>, to align actions that bring solutions.
             </h2>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
               <a href="mailto:c.kenreigh@gmail.com" style={{
