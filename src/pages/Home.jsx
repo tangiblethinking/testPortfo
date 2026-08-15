@@ -302,6 +302,24 @@ export default function Home({ setPage }) {
         </div>
       </section>
 
+      {/* ── BUILDING METHODOLOGY ─────────────────────────── */}
+      <section aria-label="Build Methology" style={{ background: SURF0, padding: SP, borderTop: '1px solid ' + BORDER }}>
+        <div style={MAX}>
+          <div style={{ marginBottom: 'clamp(2rem,4vw,3.5rem)' }}>
+            <FadeUp>
+              <p style={{ fontSize: '.6rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: INK_TERT, marginBottom: 8, fontWeight: 600 }}>Designs for Experience</p>
+              <h2 style={{ fontFamily: '"Cormorant Garamond",serif', fontSize: 'clamp(1.5rem,3.5vw,3rem)', color: INK, fontWeight: 500, margin: 0 }}>Building Methodology</h2>
+              <p style={{ fontSize: '0.95rem', color: INK_BODY, maxWidth: 520, lineHeight: 1.7, marginTop: '0.75rem' }}>
+                A glimpse in to the process of taking projects from "opportunity" to release. The "why, how, and what".
+              </p>
+            </FadeUp>
+          </div>
+          <div className="designs-grid">
+            {designs.map((d, i) => <DesignCard key={d.id} design={d} index={i} />)}
+          </div>
+        </div>
+      </section>
+
       {/* ── SELECTED WORK ────────────────────────────────── */}
       <section aria-label="Selected work" style={{ background: SURF1, padding: SP, borderTop: '1px solid ' + BORDER }}>
         <div style={MAX}>
@@ -322,24 +340,6 @@ export default function Home({ setPage }) {
           </div>
           <div className="card-grid">
             {caseStudies.map((s, i) => <CaseStudyCard key={s.id} study={s} index={i} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* ── DESIGNS AND SUCH ─────────────────────────────── */}
-      <section aria-label="Build Methology" style={{ background: SURF0, padding: SP, borderTop: '1px solid ' + BORDER }}>
-        <div style={MAX}>
-          <div style={{ marginBottom: 'clamp(2rem,4vw,3.5rem)' }}>
-            <FadeUp>
-              <p style={{ fontSize: '.6rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: INK_TERT, marginBottom: 8, fontWeight: 600 }}>Designs for Experience</p>
-              <h2 style={{ fontFamily: '"Cormorant Garamond",serif', fontSize: 'clamp(1.5rem,3.5vw,3rem)', color: INK, fontWeight: 500, margin: 0 }}>Building Methodology</h2>
-              <p style={{ fontSize: '0.95rem', color: INK_BODY, maxWidth: 520, lineHeight: 1.7, marginTop: '0.75rem' }}>
-                A glimpse in to the process of taking projects from "opportunity" to release. The "why, how, and what".
-              </p>
-            </FadeUp>
-          </div>
-          <div className="designs-grid">
-            {designs.map((d, i) => <DesignCard key={d.id} design={d} index={i} />)}
           </div>
         </div>
       </section>
