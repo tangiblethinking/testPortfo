@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { FadeUp, SlideIn } from '../components/Motion'
+import { ShippedWorkModal, ShippedWorkCta } from '../components/ShippedWorkModal'
 
 const BLUE     = 'var(--accent)'
 const WARM     = 'var(--warm)'
@@ -20,15 +22,17 @@ const philosophy = [
 ]
 
 const timeline = [
-  { period: '2024 – Present', role: 'Principal Product Designer',    company: 'Plexus Worldwide',    location: 'Phoenix, AZ · Office', color: BLUE,    wins: ['43% reduction in checkout abandonment', 'Launched 3 international e-commerce regions', 'Consolidated 6 tools → 1 unified design system', '35% sprint velocity increase via LLM tooling'] },
-  { period: '2019 – 2026',    role: 'Freelance UX Consultant', company: 'Independent Practice', location: 'Remote',               color: 'var(--violet)', wins: ['UX strategy & design systems consulting', 'Deepened AI-augmented design workflow expertise'] },
-  { period: '2022 – 2023',    role: 'Senior Product Designer', company: 'Freeport-McMoRan',    location: 'Phoenix, AZ · Hybrid', color: WARM,    wins: ['30% improvement in mining worker efficiency', 'Scalable UI design system across 3 platforms', '5 major releases approved through C-suite roadmaps'] },
-  { period: '2021 – 2022',    role: 'Senior Product Designer', company: 'OpenTech Alliance',   location: 'Phoenix, AZ · Hybrid', color: WARM,    wins: ['75% increase in POS completion rates', '25% e-commerce fulfillment improvement'] },
-  { period: '2020 – 2021',    role: 'UX Design Operator',      company: 'Siemens',              location: 'Phoenix, AZ · Remote', color: INK_TERT, wins: ['50% reduction in internal data dissemination', 'Unified design systems across 4 industrial projects'] },
-  { period: '2014 – 2019',    role: 'Senior UX Designer',      company: 'Glynlyon Inc',         location: 'Phoenix, AZ · Office', color: INK_TERT, wins: ['65% increase in product ease of use', 'WCAG and ADA compliance across all platforms', 'Senior and Lead Designer for engineering Virtual Lab Environments'] },
+  { period: '2024 – Present', role: 'Principal Product Designer', company: 'Plexus Worldwide',    location: 'Phoenix, AZ · Office', color: BLUE,         companyKey: 5, wins: ['43% reduction in checkout abandonment', 'Launched 3 international e-commerce regions', 'Consolidated 6 tools → 1 unified design system', '35% sprint velocity increase via LLM tooling'] },
+  { period: '2019 – 2026',    role: 'Freelance UX Consultant',    company: 'Independent Practice', location: 'Remote',               color: 'var(--violet)', companyKey: 0, wins: ['UX strategy & design systems consulting', 'Deepened AI-augmented design workflow expertise'] },
+  { period: '2022 – 2023',    role: 'Senior Product Designer',    company: 'Freeport-McMoRan',    location: 'Phoenix, AZ · Hybrid', color: WARM,         companyKey: 4, wins: ['30% improvement in mining worker efficiency', 'Scalable UI design system across 3 platforms', '5 major releases approved through C-suite roadmaps'] },
+  { period: '2021 – 2022',    role: 'Senior Product Designer',    company: 'OpenTech Alliance',   location: 'Phoenix, AZ · Hybrid', color: WARM,         companyKey: 3, wins: ['75% increase in POS completion rates', '25% e-commerce fulfillment improvement'] },
+  { period: '2020 – 2021',    role: 'UX Design Operator',         company: 'Siemens',              location: 'Phoenix, AZ · Remote', color: INK_TERT,     companyKey: 2, wins: ['50% reduction in internal data dissemination', 'Unified design systems across 4 industrial projects'] },
+  { period: '2014 – 2019',    role: 'Senior UX Designer',         company: 'Glynlyon Inc',         location: 'Phoenix, AZ · Office', color: INK_TERT,     companyKey: 1, wins: ['65% increase in product ease of use', 'WCAG and ADA compliance across all platforms', 'Senior and Lead Designer for engineering Virtual Lab Environments'] },
 ]
 
 export default function About({ setPage }) {
+  const [shipped, setShipped] = useState(null)
+
   return (
     <main id="main-content">
 
@@ -109,6 +113,7 @@ export default function About({ setPage }) {
                       </li>
                     ))}
                   </ul>
+                  <ShippedWorkCta onClick={() => setShipped({ companyKey: t.companyKey, companyLabel: t.company })} />
                 </div>
               </div>
             </FadeUp>
@@ -139,6 +144,14 @@ export default function About({ setPage }) {
           </FadeUp>
         </div>
       </div>
+
+      {shipped && (
+        <ShippedWorkModal
+          companyKey={shipped.companyKey}
+          companyLabel={shipped.companyLabel}
+          onClose={() => setShipped(null)}
+        />
+      )}
     </main>
   )
 }
