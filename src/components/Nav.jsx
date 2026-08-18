@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 
 const links = [
-  { label: 'Case Studies', page: 'work' },
-  { label: 'About',        page: 'about' },
-  { label: 'Resume',       page: 'resume' },
-  { label: 'Portfolio',    page: 'portfolio' },
+  { label: 'Case Studies',    page: 'work' },
+  { label: 'Shipped Designs', page: 'shipped' },
+  { label: 'About',           page: 'about' },
+  { label: 'Resume',          page: 'resume' },
 ]
 
-export function Nav({ page, setPage, openPortfolio }) {
+export function Nav({ page, setPage }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen]         = useState(false)
 
@@ -18,7 +18,6 @@ export function Nav({ page, setPage, openPortfolio }) {
   }, [])
 
   const go = (p) => {
-    if (p === 'portfolio') { setOpen(false); openPortfolio(); return }
     setPage(p); setOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
