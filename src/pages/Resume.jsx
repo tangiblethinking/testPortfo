@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { FadeUp } from '../components/Motion'
+import { ShippedWorkModal, ShippedWorkCta } from '../components/ShippedWorkModal'
 
 const BLUE  = 'var(--accent)'
 const BLUE2 = 'var(--accent-h)'
@@ -20,7 +22,7 @@ const LBL = {
 const experience = [
   {
     title: 'Principal UX and Product Designer',
-    company: 'Plexus Worldwide', url: 'https://www.plexusworldwide.com',
+    company: 'Plexus Worldwide', companyKey: 5, url: 'https://www.plexusworldwide.com',
     period: '05/2024 – Present', location: 'Phoenix, AZ · Office',
     bullets: [
       'Directing a growing team of 7 cross-disciplinary designers (UX, content, research, interaction) across US and 3 international e-commerce markets — owning team structure, project allocation, design quality, and direct 1:1 mentorship.',
@@ -32,7 +34,7 @@ const experience = [
   },
   {
     title: 'UX Consultant',
-    company: 'Independent Practice', url: null,
+    company: 'Independent Practice', companyKey: 0, url: null,
     period: '10/2023 – 06/2024', location: 'Remote',
     bullets: [
       'Delivered UX strategy and design systems consulting for e-commerce clients during intentional transition between leadership roles.',
@@ -41,7 +43,7 @@ const experience = [
   },
   {
     title: 'Senior Product Designer',
-    company: 'Freeport-McMoRan', url: 'https://www.freeportmcmoran.com',
+    company: 'Freeport-McMoRan', companyKey: 4, url: 'https://www.freeportmcmoran.com',
     period: '08/2022 – 10/2023', location: 'Phoenix, AZ · Hybrid',
     bullets: [
       'Led end-to-end design for mining operation digital tools across web, iOS, and Android — improving worker efficiency 30%.',
@@ -52,7 +54,7 @@ const experience = [
   },
   {
     title: 'Senior Product Designer',
-    company: 'OpenTech Alliance', url: null,
+    company: 'OpenTech Alliance', companyKey: 3, url: null,
     period: '2021 – 2022', location: 'Phoenix, AZ · Hybrid',
     bullets: [
       'Increased POS completion rates 75% through redesigned checkout and payment flows.',
@@ -61,7 +63,7 @@ const experience = [
   },
   {
     title: 'UX Design Operator',
-    company: 'Siemens', url: 'https://www.siemens.com',
+    company: 'Siemens', companyKey: 2, url: 'https://www.siemens.com',
     period: '2020 – 2021', location: 'Phoenix, AZ · Remote',
     bullets: [
       'Reduced internal data dissemination friction by 50% through unified industrial design systems.',
@@ -70,7 +72,7 @@ const experience = [
   },
   {
     title: 'Senior UX Designer',
-    company: 'Glynlyon Inc', url: null,
+    company: 'Glynlyon Inc', companyKey: 1, url: null,
     period: '2014 – 2019', location: 'Phoenix, AZ · Office',
     bullets: [
       'Increased product ease of use 65% through iterative UX research and redesign of education platforms.',
@@ -88,6 +90,8 @@ const skills = {
 }
 
 export default function Resume({ setPage }) {
+  const [shipped, setShipped] = useState(null)
+
   return (
     <main id="main-content">
 
@@ -137,6 +141,7 @@ export default function Resume({ setPage }) {
                     </li>
                   ))}
                 </ul>
+                <ShippedWorkCta onClick={() => setShipped({ companyKey: job.companyKey, companyLabel: job.company })} />
               </div>
             </div>
           </FadeUp>
@@ -177,6 +182,14 @@ export default function Resume({ setPage }) {
         </FadeUp>
 
       </div>
+
+      {shipped && (
+        <ShippedWorkModal
+          companyKey={shipped.companyKey}
+          companyLabel={shipped.companyLabel}
+          onClose={() => setShipped(null)}
+        />
+      )}
     </main>
   )
 }
