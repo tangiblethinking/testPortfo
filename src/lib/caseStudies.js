@@ -9,6 +9,7 @@ export const caseStudies = [
     tags:    ['Ed-Tech', 'Student Level Learning', 'Instructor Based Oversight'],
     color:   '#8B5CF6',
     href:    'https://www.uxapex.com/vlabs',
+    companyKey: 1,
   },
   {
     id:      'plexus-ecomm',
@@ -20,6 +21,7 @@ export const caseStudies = [
     tags:    ['e-Commerce', 'UX Strategy', 'Mobile-First', 'A/B Testing'],
     color:   '#FF6B35',
     href:    'https://www.uxapex.com/ecomm',
+    companyKey: 5,
   },
   {
     id:      'ux-transformation',
@@ -53,6 +55,7 @@ export const caseStudies = [
     tags:    ['Quality in = quality out', 'Systems Governance', 'Cross Functional Strategy'],
     color:   '#FFC300',
     href:    'https://www.uxapex.com/persona',
+    companyKey: 5,
   },
   {
     id:      'Maturity through onboarding Methodologies',
@@ -75,6 +78,7 @@ export const caseStudies = [
     tags:    ['Legal Compliance', 'Effortless Experience', 'Business Accountability'],
     color:   '#10B981',
     href:    'https://www.uxapex.com/laws',
+    companyKey: 5,
   },
   {
     id:      'design-ops',
@@ -86,5 +90,6 @@ export const caseStudies = [
     tags:    ['Design Ops', 'Systems Thinking', 'Team Leadership', 'AI Tooling'],
     color:   '#3B82F6',
     href:    'https://www.uxapex.com/designops',
+    companyKey: 5,
   }
 ].sort((a, b) => a.index.localeCompare(b.index));
