@@ -21,9 +21,10 @@ export function Footer({ setPage }) {
 
         <nav aria-label="Footer navigation" style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', alignItems: 'center' }}>
           {[
-            { label: 'Work',   p: 'work' },
-            { label: 'About',  p: 'about' },
-            { label: 'Resume', p: 'resume' },
+            { label: 'Case Studies',    p: 'work' },
+            { label: 'Shipped Designs', p: 'shipped' },
+            { label: 'About',           p: 'about' },
+            { label: 'Resume',          p: 'resume' },
           ].map(({ label, p }) => (
             <button key={p} onClick={() => go(p)} style={{
               fontSize: '0.65rem', textTransform: 'uppercase',
@@ -52,15 +53,14 @@ export function Footer({ setPage }) {
           <a
             href="mailto:c.kenreigh@gmail.com"
             style={{
-              fontSize: '0.875rem', color: 'var(--ink-primary)',
-              textDecoration: 'none', display: 'block', marginBottom: 4,
-              transition: 'color 0.2s', fontWeight: 500,
+              fontSize: '0.875rem', color: 'var(--ink-primary)', textDecoration: 'none',
+              transition: 'color 0.2s', display: 'block', marginBottom: 4,
             }}
             onMouseEnter={e => e.currentTarget.style.color = 'var(--accent)'}
             onMouseLeave={e => e.currentTarget.style.color = 'var(--ink-primary)'}
           >c.kenreigh@gmail.com</a>
-          <p style={{ fontSize: '0.6rem', color: 'var(--ink-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            USA Based · © 2026
+          <p style={{ fontSize: '0.65rem', color: 'var(--ink-secondary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            480-206-2145 · USA
           </p>
         </div>
       </div>
